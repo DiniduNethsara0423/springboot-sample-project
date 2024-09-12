@@ -15,7 +15,7 @@ public class CategoryController {
     CategoryService categoryService;
 
     @PostMapping("/category")
-    CategoryEntity createCategory(@RequestBody Category category){
+    Category createCategory(@RequestBody Category category){
         return categoryService.createCategory(category);
 
     }

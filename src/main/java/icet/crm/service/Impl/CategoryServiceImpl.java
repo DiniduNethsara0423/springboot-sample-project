@@ -19,13 +19,14 @@ public class CategoryServiceImpl implements CategoryService {
     ObjectMapper mapper;
 
     @Override
-    public CategoryEntity createCategory(Category category) {
+    public Category createCategory(Category category) {
        //Model entity conversion
         CategoryEntity entity=mapper.convertValue(category,CategoryEntity.class);
+
         //saving Data
 
         categoryRepository.save(entity);
-        return entity;
+        return ( mapper.convertValue(entity, Category.class));
     }
 
     @Override

@@ -8,9 +8,11 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Data
-@Entity
+
 @NoArgsConstructor
 @AllArgsConstructor
+
+@Entity
 @Table(name="book")
 public class BookEntity {
     @Id
@@ -19,8 +21,8 @@ public class BookEntity {
     private String name;
 
 
-@ManyToOne()
-@JoinColumn(name="AuthorId")
+@ManyToOne
+@JoinColumn(name="author_id")
     private AuthorEntity authorEntity;
 
 
