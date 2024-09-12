@@ -5,20 +5,22 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="category")
-public class CategoryEntity {
+
+public class BookCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-    private String name;
+    private Long id;
 
-    @OneToMany(mappedBy = "categoryEntity",cascade = CascadeType.ALL)
-    private List<BookCategory> bookCategories;
+    @ManyToOne()
+    @JoinColumn(name="bookId")
+    private BookEntity bookEntity;
+
+    @ManyToOne()
+    @JoinColumn(name="categoryId")
+    private CategoryEntity categoryEntity;
 
 }

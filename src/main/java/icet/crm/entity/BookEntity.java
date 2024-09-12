@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Entity
 @NoArgsConstructor
@@ -20,4 +22,9 @@ public class BookEntity {
 @ManyToOne()
 @JoinColumn(name="AuthorId")
     private AuthorEntity authorEntity;
+
+
+@OneToMany(mappedBy = "bookEntity",cascade = CascadeType.ALL)
+private List<BookCategory> bookCategories;
+
 }
